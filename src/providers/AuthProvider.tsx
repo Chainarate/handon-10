@@ -1,6 +1,7 @@
 import React from 'react'
 import { ChildProps, IAuthContext } from '../types/auth.context'
 import { host } from '../constant'
+import toast from 'react-hot-toast'
 
 export type AuthProviderProps = ChildProps
 type UserInfo = Pick<IAuthContext, 'id' | 'token'>
@@ -80,6 +81,7 @@ const AuthProvider = (props: AuthProviderProps) => {
     localStorage.removeItem('id')
     setIsLoggedIn(false)
     setUserInfo({ id: null, token: null })
+    toast.success('Successful Logout')
   }
 
   const register: RegisterFunc = async (username: string, name: string, password: string) => {

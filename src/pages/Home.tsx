@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <div className="flex text-left mx-10">
+      <div className="flex text-left p-0 m-auto w-11/12 flex-row-reverse">
         {isLoggedIn && (
           <Link to="/new">
             <Button type="submit" variant="contained">

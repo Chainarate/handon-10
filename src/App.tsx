@@ -8,11 +8,12 @@ import Layout from './component/Layout'
 import Create from './pages/Create'
 import Edit from './pages/Edit'
 import Register from './pages/Register'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
     <div className="App">
-      {/* <Toaster position="top-center" /> */}
+      <Toaster position="top-center" reverseOrder={false} />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

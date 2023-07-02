@@ -23,15 +23,15 @@ const ContentCard = ({ id, videoTitle, comment, rating, thumbnailUrl, creatorNam
 
       <div>
         <div className="flex flex-col text-left">
-          <h4 className="text-white">{videoTitle}</h4>
-          <h5 className="text-white">{creatorName}</h5>
+          <h4 className="text-white font-bold">{videoTitle}</h4>
+          <h5 className="text-white font-bold">{creatorName}</h5>
         </div>
 
         <h5 className="text-white text-left mt-2">{comment}</h5>
       </div>
 
       <div className="flex flex-row justify-between">
-        <p className="text-white">{postedBy.name}</p>
+        <p className="text-gray-400">{postedBy.name}</p>
         <div>
           <StyledRating
             name="Heart Rate"

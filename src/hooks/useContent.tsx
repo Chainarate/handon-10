@@ -7,6 +7,7 @@ const useContent = (postId: string): ContentHook => {
   const [data, setData] = useState<ContentDto | null>(null)
   const [error, setError] = useState<null | unknown>(null)
   const [loading, setLoading] = useState<boolean>(false)
+  const [startName, setStarName] = useState<string>('')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +17,9 @@ const useContent = (postId: string): ContentHook => {
         const data = await res.json()
 
         setData(data)
-        console.log(data.postedBy.id)
+        console.log(data.postedBy.name)
+        const text = data.postedBy.name.substring(0, 1).toUpperCase()
+        setStarName(text)
       } catch (err: any) {
         setError(err.message)
       } finally {
@@ -33,6 +36,7 @@ const useContent = (postId: string): ContentHook => {
       loading,
       ready: error == null && !loading && data != null,
     },
+    startName,
   }
 }
 

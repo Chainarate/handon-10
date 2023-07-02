@@ -4,6 +4,7 @@ import { useAuth } from '../providers/AuthProvider'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Button } from '@mui/material'
+import toast from 'react-hot-toast'
 
 const Register = () => {
   const [usernameInput, setUsernameInput] = useState('')
@@ -29,11 +30,12 @@ const Register = () => {
 
       await register(usernameInput, nameInput, passwordInput)
 
-      alert('Succes')
+      toast.success('Successful Registration.')
 
       navigate('/login')
     } catch (err) {
       console.log(err)
+      toast.error('Unsuccessful Registration')
     } finally {
       setSubmitting(false)
     }
@@ -87,7 +89,7 @@ const Register = () => {
         Register
       </Button>
 
-      <Link to="login" className="text-l text-white">
+      <Link to="/login" className="text-l text-white">
         Already have an account? Login
       </Link>
     </form>

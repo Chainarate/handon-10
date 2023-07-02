@@ -10,6 +10,7 @@ import Button from '@mui/material/Button/Button'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import styled from '@emotion/styled'
+import toast from 'react-hot-toast'
 
 const Create = () => {
   const [rating, setRating] = useState<number | null>(0)
@@ -41,10 +42,13 @@ const Create = () => {
       })
       const data = await res.json()
 
+      toast.success('Successful Create')
+
       navigate('/')
       return data
     } catch (err) {
       // TODO: Handling error
+      toast.error('Unsuccessful Create')
       console.log(err)
     } finally {
       setSubmitting(false)

@@ -12,6 +12,7 @@ import Button from '@mui/material/Button/Button'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import styled from '@emotion/styled'
+import toast from 'react-hot-toast'
 
 const Edit = () => {
   const { id } = useParams()
@@ -70,6 +71,8 @@ const Edit = () => {
         },
       })
       const data = await res.json()
+
+      toast.success('Successful Edit')
 
       navigate(`/content/${id}`)
       return data

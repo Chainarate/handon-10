@@ -4,6 +4,7 @@ import { useAuth } from '../providers/AuthProvider'
 import classes from './Login.module.css'
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState('')
@@ -22,9 +23,12 @@ const Login = () => {
     try {
       await login(usernameInput, passwordInput)
 
+      toast.success('Successful Login')
+
       navigate('/')
     } catch (err) {
       console.log(err)
+      toast.error('Unsuccessful Login')
     } finally {
       setSubmitting(false)
     }
